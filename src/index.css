@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Earthy Farming Palette */
+    --background: 45 30% 97%;
+    --foreground: 30 25% 15%;
+
+    --card: 45 25% 95%;
+    --card-foreground: 30 25% 15%;
+
+    --popover: 45 30% 97%;
+    --popover-foreground: 30 25% 15%;
+
+    /* Rich Agricultural Green */
+    --primary: 142 45% 35%;
+    --primary-foreground: 45 30% 97%;
+
+    /* Warm Earth Brown */
+    --secondary: 30 35% 85%;
+    --secondary-foreground: 30 35% 25%;
+
+    /* Soft Sage */
+    --muted: 100 15% 90%;
+    --muted-foreground: 100 10% 40%;
+
+    /* Sunny Amber Accent */
+    --accent: 45 90% 55%;
+    --accent-foreground: 30 35% 15%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 100 20% 85%;
+    --input: 100 20% 88%;
+    --ring: 142 45% 35%;
+
+    --radius: 0.75rem;
+
+    /* Custom Farming Tokens */
+    --harvest-gold: 45 90% 55%;
+    --soil-brown: 30 35% 30%;
+    --leaf-green: 142 50% 45%;
+    --sky-blue: 200 70% 60%;
+    --wheat-cream: 45 40% 92%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(142 45% 35%) 0%, hsl(142 50% 45%) 50%, hsl(100 40% 50%) 100%);
+    --gradient-sunset: linear-gradient(180deg, hsl(45 90% 55%) 0%, hsl(25 85% 55%) 100%);
+    --gradient-earth: linear-gradient(135deg, hsl(30 35% 30%) 0%, hsl(30 35% 45%) 100%);
+    --gradient-sky: linear-gradient(180deg, hsl(200 70% 75%) 0%, hsl(200 70% 60%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(30 25% 15% / 0.1);
+    --shadow-card: 0 2px 12px -2px hsl(30 25% 15% / 0.08);
+    --shadow-glow: 0 0 30px hsl(142 45% 35% / 0.2);
+
+    /* Sidebar */
+    --sidebar-background: 100 20% 94%;
+    --sidebar-foreground: 30 25% 20%;
+    --sidebar-primary: 142 45% 35%;
+    --sidebar-primary-foreground: 45 30% 97%;
+    --sidebar-accent: 142 30% 90%;
+    --sidebar-accent-foreground: 142 45% 25%;
+    --sidebar-border: 100 20% 85%;
+    --sidebar-ring: 142 45% 35%;
+  }
+
+  .dark {
+    --background: 30 20% 8%;
+    --foreground: 45 20% 92%;
+
+    --card: 30 20% 12%;
+    --card-foreground: 45 20% 92%;
+
+    --popover: 30 20% 10%;
+    --popover-foreground: 45 20% 92%;
+
+    --primary: 142 50% 50%;
+    --primary-foreground: 30 20% 8%;
+
+    --secondary: 30 25% 18%;
+    --secondary-foreground: 45 20% 90%;
+
+    --muted: 30 20% 18%;
+    --muted-foreground: 45 15% 60%;
+
+    --accent: 45 85% 50%;
+    --accent-foreground: 30 25% 10%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 20% 20%;
+    --input: 30 20% 20%;
+    --ring: 142 50% 50%;
+
+    --sidebar-background: 30 20% 10%;
+    --sidebar-foreground: 45 20% 90%;
+    --sidebar-primary: 142 50% 50%;
+    --sidebar-primary-foreground: 30 20% 8%;
+    --sidebar-accent: 30 25% 18%;
+    --sidebar-accent-foreground: 45 20% 90%;
+    --sidebar-border: 30 20% 20%;
+    --sidebar-ring: 142 50% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'DM Sans', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-sunset {
+    background: var(--gradient-sunset);
+  }
+
+  .gradient-earth {
+    background: var(--gradient-earth);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Animations */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-gentle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.5); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
+}
+
+.animate-pulse-gentle {
+  animation: pulse-gentle 2s ease-in-out infinite;
+}
+
+.animate-bounce-gentle {
+  animation: bounce-gentle 1s ease-in-out infinite;
+}
+
+/* PWA & Mobile optimizations */
+html, body {
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@supports (padding: env(safe-area-inset-top)) {
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
